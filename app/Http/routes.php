@@ -9,9 +9,6 @@ Route::get('/', function () {
 
 Route::get('/home', ['as' => 'auth.home', function () { return view('home'); }]);
 
-
-
-
 Route::get('/resource', function () {
     $authenticated = false;
     if (Session::has('authenticated')) {
