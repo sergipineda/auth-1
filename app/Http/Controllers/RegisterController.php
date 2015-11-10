@@ -20,12 +20,13 @@ class RegisterController extends Controller
     }*/
     public function postRegister(){
         // echo "Aqui va el registre";
-        $user = new User();
-        $user -> name = Input::get('name');
-        $user -> password = Input::get('password');
-        $user -> email = Input::get('email');
+        //$user = new User();
+        //$user -> name = Input::get('name');
+        //$user -> password = Input::get('password');
+        //$user -> email = Input::get('email');
 
-        $user->save();
+        //$user->save();
+        User::create(Input::all());
 
     }
 }

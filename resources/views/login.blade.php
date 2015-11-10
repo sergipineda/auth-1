@@ -40,7 +40,7 @@
             <div class="content">
                 <div class="title">LOGIN</div>
 
-                <form method="post" action="{{ route('auth.postLogin') }}">
+                <form method="post" action="{{ route('auth.login') }}">
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="email">Email address:</label>
@@ -56,7 +56,7 @@
                     <button id ="login" type="submit" class="btn btn-default">Login</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>
-                <a id="register" href="{{ route('auth.register') }}">Register</a>
+                <a id="register" href="{{ route('register.register') }}">Register</a>
             </div>
         </div>
     </body>
