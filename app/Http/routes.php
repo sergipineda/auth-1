@@ -12,7 +12,7 @@ Route::get('/home', ['as' => 'auth.home', function () { return view('home'); }])
 Route::get('/resource', function () {
     $authenticated = false;
     if (Session::has('authenticated')) {
-        if (Session::get('authenticated') == true ) {
+        if (Session::get('authenticated') == true) {
             $authenticated = true;
         }
     }
@@ -20,7 +20,13 @@ Route::get('/resource', function () {
     if ($authenticated) {
         return view('resource');
     } else {
-        return view('login');
+        return view('auth.login');
     }
-
 });
+
+Route::get('/flushSession', function () {
+    Session::flush;
+});
+
+Route::get('/register',['as' => 'register.register','uses' => 'RegisterController@getRegister']);
+Route::post('/register',['as' => 'register.postRegister','uses' => 'RegisterController@postRegister']);

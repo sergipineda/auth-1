@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests;
-use App\Http\Requests\Request;
+use Hash;
+use Illuminate\Http\Request;
 use App\User;
 
 /**
@@ -22,7 +22,7 @@ class LoginController extends Controller
         //\Debugbar::info("Ok entra a postLogin");
         //echo "asdasd";
 
-        if ($this->login($request->email,$request->password)) {
+        if ($this->login($request->email, $request->password)) {
             //REDIRECT TO HOME
             return redirect()->route('auth.home');
         } else {
@@ -43,12 +43,12 @@ class LoginController extends Controller
 
         //$user = User::findOrFail(id);
         //$user = User::all();
-          $user = User::where('email',$email)->first();
-        if ($user->password == bcrypt($password)) {
+       //   $user = User::where('email',$email)->first();
+        /*if (Hash::check($password, $user->password)) {
             return true;
         }else{
             return false;
-        }
+        }*/
 
     }
 
