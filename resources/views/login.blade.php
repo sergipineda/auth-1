@@ -40,7 +40,7 @@
             <div class="content">
                 <div class="title">LOGIN</div>
 
-                <form method="post" action="{{ route('auth.login') }}">
+                <form method="post" action="{{route('auth.postLogin')}}">>
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="email">Email address:</label>

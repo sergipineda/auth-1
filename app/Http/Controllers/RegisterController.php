@@ -14,19 +14,22 @@ class RegisterController extends Controller
        // echo "Aqui va el registre";
         return view('register');
     }
-    /*public function postRegister(){
-        // echo "Aqui va el registre";
-        dd(Input::all());
-    }*/
-    public function postRegister(){
-        // echo "Aqui va el registre";
-        //$user = new User();
-        //$user -> name = Input::get('name');
-        //$user -> password = Input::get('password');
-        //$user -> email = Input::get('email');
 
-        //$user->save();
-        User::create(Input::all());
+    public function postRegister(Request $request){
+        //echo "Aqui va el registre";
+
+        $this->validate($request, [
+            'name' => 'required|max:100',
+                'email' => 'required|email|unique' ,
+            'password' => 'required',
+        ]);
+        $user = new User();
+        $user -> name = $request->get('name');
+        $user -> password = bcrypt ($request->get('password'));
+        $user -> email = $request->get('email');
+
+        $user->save();
+        //User::create(Input::all());
 
     }
 }
