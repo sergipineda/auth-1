@@ -21,7 +21,7 @@ class LoginController extends Controller
         //dd($request->all());
         //\Debugbar::info("Ok entra a postLogin");
         //echo "asdasd";
-
+        $this->validate($request,['email' => 'required|email','password' => 'required']);
         if ($this->login($request->email, $request->password)) {
             //REDIRECT TO HOME
             return redirect()->route('auth.home');
@@ -43,12 +43,12 @@ class LoginController extends Controller
 
         //$user = User::findOrFail(id);
         //$user = User::all();
-       //   $user = User::where('email',$email)->first();
-        /*if (Hash::check($password, $user->password)) {
+      $user = User::where('email',$email)->first();
+        if (Hash::check($password, $user->password)) {
             return true;
         }else{
             return false;
-        }*/
+        }
 
     }
 
