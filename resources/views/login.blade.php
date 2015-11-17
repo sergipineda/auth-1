@@ -48,6 +48,14 @@
                         </ul>
                     </div>
                 @endif
+                @if (Session::has('login_error'))
+                    <div class="alert alert-danger">
+                        <ul>
+                            {{Session::get('login_error')}}
+
+                        </ul>
+                    </div>
+                @endif
                 <form method="post" action="{{route('auth.postLogin')}}">>
                     {!! csrf_field() !!}
                     <div class="form-group">

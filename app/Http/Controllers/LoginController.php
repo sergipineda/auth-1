@@ -27,6 +27,8 @@ class LoginController extends Controller
             return redirect()->route('auth.home');
         } else {
             //REDIRECT BACK
+            $request->session()->flash('login_error', 'Login_incorrecte');
+            //Session::flash();
             return redirect()->route('auth.login');
         }
     }

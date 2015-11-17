@@ -4,6 +4,8 @@
     <title>Laravel</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/all.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 
     <style>
         html, body {
@@ -34,7 +36,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">REGISTER</div>
+        <div class="jumbotron">REGISTER</div>
 
         <form method="post" action="{{ route('register.postRegister') }}">
             {!! csrf_field() !!}
@@ -56,11 +58,17 @@
             <div class="form-group">
                 <label for="name">User name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Nom d'usuari" required>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group" id="emailFormGroup">
                 <label for="email">Email address:</label>
+
                 <input type="email" class="form-control" id="email" name="email" placeholder="el teu correu electronic" required>
+                <div v-show="exists">
+                    email ja existeix
+                </div>
             </div>
+
+                
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="La teva contrasenya" required>
@@ -72,7 +80,7 @@
 
 
 
-            <button id="login" type="submit" class="btn btn-default">Register</button>
+            <button id="login" type="submit" class="btn btn-primary">Register</button>
             <button type="reset" class="btn btn-default">Reset</button>
 
         </form>
@@ -81,5 +89,10 @@
         <a id="login" href="{{ route('auth.login') }}">Loga't</a>
     </div>
 </div>
+
+            <script src="{{asset('js/all.js')}}"></script>
+            <script src="{{asset('js/main.js')}}"></script>
+            <script src="{{asset('js/main.js')}}"></script>
+
 </body>
 </html>
