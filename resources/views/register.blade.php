@@ -62,13 +62,14 @@
             <div class="form-group" id="emailFormGroup">
                 <label for="email">Email address:</label>
 
-                <input type="email" class="form-control" id="email" name="email" placeholder="el teu correu electronic" required>
+                <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}"
+                       placeholder="el teu correu electronic" v-on:onblur="checkEmailExists" required>
                 <div v-show="exists">
                     email ja existeix
                 </div>
             </div>
 
-                
+
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="La teva contrasenya" required>
